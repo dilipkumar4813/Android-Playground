@@ -11,7 +11,8 @@ The object animator is the easiest and simplest animations that can be implement
 ObjectAnimator object = ObjectAnimator.ofFloat(widget,property,value); //Can use the function ofInt as well
 
 ##Interpolator
-Interpolators are used for creating animations on android widgets. The following interpolators are supported in android :
+Interpolators are used for creating animations on android widgets. The following interpolators are supported in android : 
+
 1. bounce_interpolator
 2. accelerate_interpolator
 3. decelerate_interpolator
@@ -28,6 +29,19 @@ Animation animation = AnimationUtils.loadAnimation(this,R.anim.yourxmlfilename);
 
 Start the animation using the widget as follows
 widget.startAnimation(animation);
+
+xml file example
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/bounce_interpolator">
+    <translate
+        android:fromYDelta="-100%p"
+        android:toYDelta="0"
+        android:duration="2000"
+        />
+</set>
+```
 
 ##Collections
 Collection is the root interface from which the classes are dervices
