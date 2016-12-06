@@ -26,6 +26,7 @@ public class ConstraintActivity extends AppCompatActivity implements View.OnClic
             case R.id.image_interpolator_activity:
                 Intent interpolatorIntent = new Intent(this, InterpolatorActivity.class);
                 startActivity(interpolatorIntent);
+                break;
             case R.id.image_object_animator:
                 Intent intentObjectAnimatorActivity = new Intent(this, ObjectAnimatorActivity.class);
                 startActivity(intentObjectAnimatorActivity);
