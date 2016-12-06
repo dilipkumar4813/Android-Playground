@@ -18,6 +18,12 @@ public class ConstraintActivity extends AppCompatActivity implements View.OnClic
 
         ImageView ivObjectAnimator = (ImageView) findViewById(R.id.image_object_animator);
         ivObjectAnimator.setOnClickListener(this);
+
+        ImageView ivEvaluators = (ImageView) findViewById(R.id.image_evaluators_property);
+        ivEvaluators.setOnClickListener(this);
+
+        ImageView ivOthers = (ImageView) findViewById(R.id.image_others);
+        ivOthers.setOnClickListener(this);
     }
 
     @Override
@@ -30,6 +36,14 @@ public class ConstraintActivity extends AppCompatActivity implements View.OnClic
             case R.id.image_object_animator:
                 Intent intentObjectAnimatorActivity = new Intent(this, ObjectAnimatorActivity.class);
                 startActivity(intentObjectAnimatorActivity);
+                break;
+            case R.id.image_evaluators_property:
+                Intent evaluatorsActivity = new Intent(this, EvaluatorsActivity.class);
+                startActivity(evaluatorsActivity);
+                break;
+            case R.id.image_others:
+                Intent othersIntent = new Intent(this, OthersActivity.class);
+                startActivity(othersIntent);
                 break;
         }
     }

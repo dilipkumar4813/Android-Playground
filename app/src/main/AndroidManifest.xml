@@ -16,7 +16,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".InterpolatorActivity" />
-        <activity android:name=".ObjectAnimatorActivity"></activity>
+        <activity android:name=".ObjectAnimatorActivity" />
+        <activity android:name=".OthersActivity" />
+        <activity android:name=".EvaluatorsActivity"></activity>
     </application>
 
 </manifest>
