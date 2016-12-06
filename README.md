@@ -70,6 +70,23 @@ argbEvaluator.setDuration(5000);
 argbEvaluator.start();
 ```
 
+#Intent
+Share, view links, call, send messages and do other exiting things using intents a few examples as given below
+
+Code to view web link
+```java
+Intent viewLinkIntent = new Intent(Intent.ACTION_VIEW,Uri.parse("http://www.google.com"));
+startActivity(viewLinkIntent);
+```
+
+Code to share
+```java
+Intent shareIntent = new Intent(Intent.ACTION_SEND);
+shareIntent.setType("text/plain");
+shareIntent.putExtra(Intent.EXTRA_TEXT,"Something you want to share");
+startActivity(Intent.createChooser(shareIntent,"Share using"));
+```
+
 #Collections
 Collection is the root interface from which the classes are dervices
 
