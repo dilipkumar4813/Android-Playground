@@ -60,6 +60,16 @@ xml file example
 </set>
 ```
 
+##Evaluators
+Animating colors and rectangles can be achieved using ArgbEvalutor and RectEvalutor. The implementation is done using the ObjectAnimator and using the method ofObject present within the ObjectAnimator class.
+
+Example
+```java
+ObjectAnimator argbEvaluator = ObjectAnimator.ofObject(ivArgbEvaluators, "backgroundColor", new ArgbEvaluator(), Color.CYAN, Color.MAGENTA);
+argbEvaluator.setDuration(5000);
+argbEvaluator.start();
+```
+
 ##Collections
 Collection is the root interface from which the classes are dervices
 
