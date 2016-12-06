@@ -10,6 +10,23 @@ Just a playground for testing android coding
 The object animator is the easiest and simplest animations that can be implemented in android using the ObjectAnimator Class
 ObjectAnimator object = ObjectAnimator.ofFloat(widget,property,value); //Can use the function ofInt as well
 
+The various properties are as follows
+
+1. rotation
+2. rotationX
+3. rotationY
+4. scaleX
+5. scaleY
+
+Example code
+```java
+
+ObjectAnimator rotation = ObjectAnimator.ofFloat(ivTest,"rotation",360);
+rotation.setDuration(2000);
+rotation.start();
+
+```
+
 ##Interpolator
 Interpolators are used for creating animations on android widgets. The following interpolators are supported in android : 
 
