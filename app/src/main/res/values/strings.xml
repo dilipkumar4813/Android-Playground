@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Android Playground</string>
+    <string name="constraint_layout_description">This is a test description to check how the constraint layout works and how data can be aligned easily without having to use any other type of layouts such as horizontal, linear or table</string>
+    <string name="interpolator_bounce">Bounce</string>
+</resources>
