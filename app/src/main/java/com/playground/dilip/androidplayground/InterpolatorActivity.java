@@ -10,14 +10,14 @@ import android.widget.ImageView;
 
 public class InterpolatorActivity extends AppCompatActivity implements View.OnClickListener{
 
-    ImageView ivInterpolatoreImage;
+    ImageView ivInterpolatorImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_interpolator);
 
-        ivInterpolatoreImage = (ImageView) findViewById(R.id.image_interpolator);
+        ivInterpolatorImage = (ImageView) findViewById(R.id.image_interpolator);
 
         Button button_bounce = (Button) findViewById(R.id.button_bounce);
         button_bounce.setOnClickListener(this);
@@ -28,7 +28,7 @@ public class InterpolatorActivity extends AppCompatActivity implements View.OnCl
         switch(view.getId()){
             case R.id.button_bounce:
                 Animation animation = AnimationUtils.loadAnimation(this,R.anim.interpolator_bounce);
-                ivInterpolatoreImage.startAnimation(animation);
+                ivInterpolatorImage.startAnimation(animation);
                 break;
         }
     }
