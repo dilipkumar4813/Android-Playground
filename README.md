@@ -89,11 +89,13 @@ startActivity(Intent.createChooser(shareIntent,"Share using"));
 
 #Threads
 **Asynchronous - Message Queue (Will complete one item after another)**
+
 1. Activity
 2. Service
 3. Broadcast Receiever
 
 **Synchronous - Runs on the main thread**
+
 1. Content Provider
 
 Anything that is going to perform a long operation will block the main thread and cause the application to crash, use additional threads for tasks longer than 5 seconds. For very long time consumption operation use services
@@ -101,6 +103,7 @@ Anything that is going to perform a long operation will block the main thread an
 **Android Threading Architecture**
 
 Process has the following
+
 1. Internal Components
 	* Activities
 	* Services
@@ -111,6 +114,7 @@ Process has the following
 4. External Componenets
 
 Methods
+
 1. runOnUiThread(Runnable runnable) - use to update the UI
 2. post(Runnable runnable) - Add to message queue
 3. postDelayed(Runnable runnable,long miliseconds) - Execute after a time provided
