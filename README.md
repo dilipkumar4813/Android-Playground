@@ -88,6 +88,11 @@ startActivity(Intent.createChooser(shareIntent,"Share using"));
 ```
 
 #Threads
+Threads can be implemented in two ways
+
+1. Extending the Thread class
+2. Implementing the Runnable Interface
+
 **Asynchronous - Message Queue (Will complete one item after another)**
 
 1. Activity
@@ -112,6 +117,8 @@ Process has the following
 2. Contains the main thread which is run by the looper
 3. Thread pool
 4. External Componenets
+
+[Android process!](https://github.com/dilipkumar4813/Android-Playground/explanation-assets/android-process-threads.png)
 
 Methods
 
