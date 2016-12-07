@@ -118,7 +118,7 @@ Process has the following
 3. Thread pool
 4. External Componenets
 
-[Android process!](https://github.com/dilipkumar4813/Android-Playground/explanation-assets/android-process-threads.png)
+[Android process!](https://github.com/dilipkumar4813/Android-Playground/blob/master/explanation-assets/android-process-threads.png)
 
 Methods
 
