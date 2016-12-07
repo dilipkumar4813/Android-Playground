@@ -5,16 +5,50 @@
     android:id="@+id/activity_others"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.playground.dilip.androidplayground.OthersActivity">
+    tools:context="com.playground.dilip.androidplayground.OthersActivity"
+    android:background="@drawable/gradient_background">
 
     <Button
         android:text="Call"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button_call_number"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="160dp"
         android:layout_marginTop="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="160dp" />
+
+    <Button
+        android:text="View Link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_view_link"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/button_call_number"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp" />
+
+    <Button
+        android:text="Share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_share"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toRightOf="@+id/button_call_number"
+        android:layout_marginLeft="16dp" />
+
+    <Button
+        android:text="Thread"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_thread"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toRightOf="@+id/button_share"
         android:layout_marginLeft="16dp" />
 </android.support.constraint.ConstraintLayout>

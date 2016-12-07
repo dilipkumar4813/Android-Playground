@@ -5,7 +5,8 @@
     android:id="@+id/activity_others"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.playground.dilip.androidplayground.OthersActivity">
+    tools:context="com.playground.dilip.androidplayground.OthersActivity"
+    android:background="@drawable/gradient_background">
 
     <Button
         android:text="Call"
@@ -79,4 +80,15 @@
         app:layout_constraintGuide_percent="0.12328767"
         tools:layout_editor_absoluteY="63dp"
         tools:layout_editor_absoluteX="0dp" />
+
+    <Button
+        android:text="Thread"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_thread"
+        app:layout_constraintTop_toTopOf="@+id/guideline7"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline5"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="16dp" />
 </android.support.constraint.ConstraintLayout>

@@ -87,6 +87,51 @@ shareIntent.putExtra(Intent.EXTRA_TEXT,"Something you want to share");
 startActivity(Intent.createChooser(shareIntent,"Share using"));
 ```
 
+#Threads
+**Asynchronous - Message Queue (Will complete one item after another)**
+1. Activity
+2. Service
+3. Broadcast Receiever
+
+**Synchronous - Runs on the main thread**
+1. Content Provider
+
+Anything that is going to perform a long operation will block the main thread and cause the application to crash, use additional threads for tasks longer than 5 seconds. For very long time consumption operation use services
+
+**Android Threading Architecture**
+
+Process has the following
+1. Internal Components
+	* Activities
+	* Services
+	* Content Provider
+	* Broadcast receiever
+2. Contains the main thread which is run by the looper
+3. Thread pool
+4. External Componenets
+
+Methods
+1. runOnUiThread(Runnable runnable) - use to update the UI
+2. post(Runnable runnable) - Add to message queue
+3. postDelayed(Runnable runnable,long miliseconds) - Execute after a time provided
+4. setThreadPriority(int priority) -> -20 highest and 19 lowest priority
+
+Example
+```java
+new Thread(new Runnable(){
+	public void run(){
+		downloadSomething();
+	}
+});
+```
+
+The progress dialog runs as a thread and the value of the progress dialog can be set from a thread using the following code
+
+```java
+progressdialogwidget.post(priority);
+```
+
+
 #Collections
 Collection is the root interface from which the classes are dervices
 
