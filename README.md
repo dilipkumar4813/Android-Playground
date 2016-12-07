@@ -142,6 +142,24 @@ The progress dialog runs as a thread and the value of the progress dialog can be
 progressdialogwidget.post(priority);
 ```
 
+#Handlers
+We use handlers for two main reasons
+
+1. To communicate between threads
+2. Send messages between threads
+
+An activity can contain a single Handler, You can create a handler using `Handler handler = new Handler();`
+
+#Async Task
+An Async task is used to perform operations that take longer time. Within an Async task the following functions can be implemented
+
+1. onPreExecute
+2. doInBackground
+3. onPostExecute
+4. onProgressUpdate
+
+#Communicating between different Android Applications
+To view data of another application the userId of the application has to been shared between the applications. To do this we go into the manifest.xml and in the root tag we provide `ShareUserId="unique-name"`
 
 #Collections
 Collection is the root interface from which the classes are dervices
