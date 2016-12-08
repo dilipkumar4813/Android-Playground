@@ -7,11 +7,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.playground.dilip.androidplayground.R;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
@@ -35,12 +37,19 @@ public class RssFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_rss, container, false);
 
+        Button buttonRss = (Button) view.findViewById(R.id.button_rss);
+        buttonRss.setOnClickListener(this);
+
         return view;
     }
 
     @Override
     public void onClick(View view) {
 
+        switch (view.getId()) {
+            case R.id.button_rss:
+                break;
+        }
     }
 
     class RssFeed extends AsyncTask<String, Void, Void> {
@@ -87,14 +96,21 @@ public class RssFragment extends Fragment implements View.OnClickListener {
                 Document document = documentBuilder.parse(inputStream);
                 Element rootElement = document.getDocumentElement();
                 NodeList node = rootElement.getElementsByTagName("item");
-                NodeList parentNode = null;
-                NodeList childNode = null;
+                NodeList childrenItems = null;
+                Node parentNode = null;
+                Node childNode = null;
 
                 for (int i = 0; i < node.getLength(); i++) {
-                    parentNode = (NodeList) node.item(i);
-                    for (int j = 0; j < parentNode.getLength(); j++) {
-                        childNode = (NodeList) parentNode.item(j);
-                        Log.d("Something", " " + childNode.item(j));
+                    parentNode = node.item(i);
+                    childrenItems = parentNode.getChildNodes();
+
+                    for (int j = 0; j < childrenItems.getLength(); j++) {
+                        childNode = childrenItems.item(j);
+                        Log.d("Something", " " + childNode.getTextContent());
+
+                        if (childNode.getNodeName().equalsIgnoreCase("name")) {
+                            Log.d("name", "" + childNode.getAttributes().item(0).getTextContent());
+                        }
                     }
                 }
             } catch (ParserConfigurationException e) {
