@@ -2,7 +2,9 @@ package com.playground.dilip.androidplayground;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Environment;
@@ -17,6 +19,11 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.appindexing.Thing;
+import com.google.android.gms.common.api.GoogleApiClient;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -30,6 +37,11 @@ public class OthersActivity extends AppCompatActivity implements View.OnClickLis
     Handler handler;
 
     ProgressBar progressBar;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +68,9 @@ public class OthersActivity extends AppCompatActivity implements View.OnClickLis
         Button buttonAsync = (Button) findViewById(R.id.button_async);
         buttonAsync.setOnClickListener(this);
 
+        Button buttonFragments = (Button) findViewById(R.id.button_fragments);
+        buttonFragments.setOnClickListener(this);
+
         //Handlers are used to communicate from the background thread to the UI thread
         //Handlers are used to send messages between threads
         //An activity will have only one handler
@@ -66,6 +81,9 @@ public class OthersActivity extends AppCompatActivity implements View.OnClickLis
                 progressBar.setProgress(msg.arg1);
             }
         };
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     @Override
@@ -107,6 +125,8 @@ public class OthersActivity extends AppCompatActivity implements View.OnClickLis
                 AsyncTaskTest test = new AsyncTaskTest();
                 String url = "https://cdn1.iconfinder.com/data/icons/ios-7-style-metro-ui-icons/512/MetroUI_OS_Android.png";
                 test.execute(url);
+                break;
+            case R.id.button_fragments:
                 break;
         }
     }
@@ -158,6 +178,42 @@ public class OthersActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    public Action getIndexApiAction() {
+        Thing object = new Thing.Builder()
+                .setName("Others Page") // TODO: Define a title for the content shown.
+                // TODO: Make sure this auto-generated URL is correct.
+                .setUrl(Uri.parse("http://[ENTER-YOUR-URL-HERE]"))
+                .build();
+        return new Action.Builder(Action.TYPE_VIEW)
+                .setObject(object)
+                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
+                .build();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        AppIndex.AppIndexApi.start(client, getIndexApiAction());
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        AppIndex.AppIndexApi.end(client, getIndexApiAction());
+        client.disconnect();
+    }
+
     class DownloadThread implements Runnable {
 
         String url = "";
@@ -184,6 +240,16 @@ public class OthersActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     public class AsyncTaskTest extends AsyncTask<String, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            if (OthersActivity.this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+                OthersActivity.this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+            } else {
+                OthersActivity.this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+            }
+        }
 
         @Override
         protected Void doInBackground(String... params) {
@@ -239,6 +305,7 @@ public class OthersActivity extends AppCompatActivity implements View.OnClickLis
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             Toast.makeText(getApplicationContext(), "Downloaded image successfully", Toast.LENGTH_SHORT).show();
+            OthersActivity.this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
         }
     }
 }
