@@ -2,6 +2,8 @@ package com.playground.dilip.androidplayground.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,8 +30,13 @@ public class FirstFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
 
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         switch (view.getId()) {
             case R.id.button_rss:
+                fragmentTransaction.replace(R.id.fragment_container, new RssFragment());
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
                 break;
         }
     }
